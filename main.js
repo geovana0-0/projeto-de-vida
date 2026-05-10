@@ -1,59 +1,78 @@
 const botoes = document.querySelectorAll(".botao");
 const textos = document.querySelectorAll(".aba-conteudo");
-//Percorrer (iterar) uma lista de elementos
+
+/* BOTÕES DAS ABAS */
+
 for (let i = 0; i < botoes.length; i++) {
-  botoes[i].onclick = function () {
-    for (let j = 0; j < botoes.length; j++) {
-      botoes[j].classList.remove("ativo");
-      textos[j].classList.remove("ativo");
-    }
-    botoes[i].classList.add("ativo");
-    textos[i].classList.add("ativo");
-  };
+
+    botoes[i].onclick = function () {
+
+        for (let j = 0; j < botoes.length; j++) {
+
+            botoes[j].classList.remove("ativo");
+            textos[j].classList.remove("ativo");
+        }
+
+        botoes[i].classList.add("ativo");
+        textos[i].classList.add("ativo");
+    };
 }
-// document.querySelector("#minhaDiv p").textContent = "Chega de calor";
+
+/* CONTADORES */
+
 const contadores = document.querySelectorAll(".contador");
-const tempoObjetivo1 = new Date("2024-04-03T00:00:00");
-const tempoObjetivo2 = new Date("2024-10-17T00:00:00");
-const tempoObjetivo3 = new Date("2024-06-25T00:00:00");
-const tempoObjetivo4 = new Date("2024-12-25T00:00:00");
-const tempos = [tempoObjetivo1, tempoObjetivo2, tempoObjetivo3, tempoObjetivo4];
+
+const tempoObjetivo1 = new Date("2026-12-31T00:00:00");
+const tempoObjetivo2 = new Date("2026-11-20T00:00:00");
+const tempoObjetivo3 = new Date("2026-09-15T00:00:00");
+const tempoObjetivo4 = new Date("2026-08-01T00:00:00");
+
+const tempos = [
+    tempoObjetivo1,
+    tempoObjetivo2,
+    tempoObjetivo3,
+    tempoObjetivo4
+];
 
 function calculaTempo(tempoObjetivo) {
-  let tempoAtual = new Date();
-  let tempoFinal = tempoObjetivo - tempoAtual;
 
-  // Outra alternativa
-  // if( tempoFinal < 0){  
-  //   return "Prazo finalizado";
-  // }
+    const tempoAtual = new Date();
 
-  let segundos = Math.floor(tempoFinal / 1000);
-  let minutos = Math.floor(segundos / 60);
-  let horas = Math.floor(minutos / 60);
-  let dias = Math.floor(horas / 24);
+    const tempoFinal = tempoObjetivo - tempoAtual;
 
-  segundos %= 60;
-  minutos %= 60;
-  horas %= 24;
+    if (tempoFinal <= 0) {
 
-  if (tempoFinal > 0) {
-    return ( dias + " dias " +  horas + " horas " + minutos + " minutos " + segundos +  " segundos");
-  } else {
-    return "Prazo finalizado.";
-  }
+        return "Prazo finalizado.";
+    }
+
+    let segundos = Math.floor(tempoFinal / 1000);
+    let minutos = Math.floor(segundos / 60);
+    let horas = Math.floor(minutos / 60);
+    let dias = Math.floor(horas / 24);
+
+    segundos = segundos % 60;
+    minutos = minutos % 60;
+    horas = horas % 24;
+
+    return dias + " dias "
+        + horas + " horas "
+        + minutos + " minutos "
+        + segundos + " segundos";
 }
 
 function atualizaCronometro() {
-  for (let i = 0; i < contadores.length; i++) {
-    contadores[i].textContent = calculaTempo(tempos[i]);
-  }
+
+    for (let i = 0; i < contadores.length; i++) {
+
+        contadores[i].textContent = calculaTempo(tempos[i]);
+    }
 }
 
 function comecaCronometro() {
-  atualizaCronometro();
-  setInterval(atualizaCronometro, 1000);
+
+    atualizaCronometro();
+
+    setInterval(atualizaCronometro, 1000);
 }
 
 comecaCronometro();
-
