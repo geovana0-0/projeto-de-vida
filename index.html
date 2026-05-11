@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Objetivos do ano</title>
+    <title>Projeto de Vida</title>
 
-    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,50 +13,181 @@
 
     <section class="conteudo-principal">
 
-        <h2 class="titulo-principal">
-            Meus Objetivos do ano<span>_</span>
-        </h2>
+        <h1 class="titulo-principal">
+            Meus Objetivos do Ano<span>_</span>
+        </h1>
 
-        <div class="botoes">
-            <button class="botao ativo">
-                tirar boas notas durante os trimestres
-            </button>
+        <div class="conteudo">
 
-            <button class="botao">
-                passar na faculdade
-            </button>
+            <!-- BOTÕES -->
+            <div class="botoes">
 
-            <button class="botao">
-                encontrar um trabalho melhor
-            </button>
+                <button class="botao ativo">
+                    Tirar boas notas durante os trimestres
+                </button>
 
-            <button class="botao">
-                permanecer bem comigo mesma
-            </button>
-        </div>
+                <button class="botao">
+                    Passar na faculdade
+                </button>
 
-        <div class="abas-textos">
+                <button class="botao">
+                    Encontrar um trabalho melhor
+                </button>
 
-            <div class="aba-conteudo">
-                <h3 class="aba-conteudo-titulo-principal">
-                    tirar boas notas durante os trimestres
-                </h3>
+                <button class="botao">
+                    Permanecer bem comigo mesma
+                </button>
 
-                <h4 class="aba-conteudo-titulo-secundario">
-                    tempo para completar o objetivo
-                </h4>
             </div>
 
-            <div class="aba-conteudo">
-                <h3 class="aba-conteudo-titulo-principal">
-                    passar na faculdade
-                </h3>
+            <!-- TEXTOS DAS ABAS -->
+            <div class="abas-textos">
 
-                <h4 class="aba-conteudo-titulo-secundario">
-                    concluir
-                </h4>
+                <!-- ABA 1 -->
+                <div class="aba-conteudo ativo">
+
+                    <h3 class="aba-conteudo-titulo-principal">
+                        Tirar boas notas durante os trimestres
+                    </h3>
+
+                    <h4 class="aba-conteudo-titulo-secundario">
+                        Tempo para completar o objetivo
+                    </h4>
+
+                    <div class="contador">
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="dias0"></p>
+                            <p class="contador-digito-texto">dias</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="horas0"></p>
+                            <p class="contador-digito-texto">horas</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="min0"></p>
+                            <p class="contador-digito-texto">min</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="seg0"></p>
+                            <p class="contador-digito-texto">seg</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ABA 2 -->
+                <div class="aba-conteudo">
+
+                    <h3 class="aba-conteudo-titulo-principal">
+                        Passar na faculdade
+                    </h3>
+
+                    <h4 class="aba-conteudo-titulo-secundario">
+                        Tempo para completar o objetivo
+                    </h4>
+
+                    <div class="contador">
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="dias1"></p>
+                            <p class="contador-digito-texto">dias</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="horas1"></p>
+                            <p class="contador-digito-texto">horas</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="min1"></p>
+                            <p class="contador-digito-texto">min</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="seg1"></p>
+                            <p class="contador-digito-texto">seg</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ABA 3 -->
+                <div class="aba-conteudo">
+
+                    <h3 class="aba-conteudo-titulo-principal">
+                        Encontrar um trabalho melhor
+                    </h3>
+
+                    <h4 class="aba-conteudo-titulo-secundario">
+                        Tempo para completar o objetivo
+                    </h4>
+
+                    <div class="contador">
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="dias2"></p>
+                            <p class="contador-digito-texto">dias</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="horas2"></p>
+                            <p class="contador-digito-texto">horas</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="min2"></p>
+                            <p class="contador-digito-texto">min</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="seg2"></p>
+                            <p class="contador-digito-texto">seg</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ABA 4 -->
+                <div class="aba-conteudo">
+
+                    <h3 class="aba-conteudo-titulo-principal">
+                        Permanecer bem comigo mesma
+                    </h3>
+
+                    <h4 class="aba-conteudo-titulo-secundario">
+                        Tempo para completar o objetivo
+                    </h4>
+
+                    <div class="contador">
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="dias3"></p>
+                            <p class="contador-digito-texto">dias</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="horas3"></p>
+                            <p class="contador-digito-texto">horas</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="min3"></p>
+                            <p class="contador-digito-texto">min</p>
+                        </div>
+
+                        <div class="contador-digito">
+                            <p class="contador-digito-numero" id="seg3"></p>
+                            <p class="contador-digito-texto">seg</p>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
-
         </div>
 
     </section>
@@ -64,4 +195,5 @@
     <script src="main.js"></script>
 
 </body>
+
 </html>
