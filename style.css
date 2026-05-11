@@ -1,290 +1,146 @@
-```css
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap");
 
 :root {
-    --cor-de-fundo: #120016;
-
-    /* PALETA FEMININA SUAVE */
-    --rosa: #d98cb3;
-    --lilas: #b79ced;
-    --azul: #b7d7f7;
-    --verde: #b7e4c7;
-
+    --cor-de-fundo: #702323;
+    --verde: #d39d9dc9;
     --branco: #ffffff;
-
-    --botao-ativo: #c97aa5;
-    --botao-inativo: rgba(255, 255, 255, 0.08);
-
-    --texto-fundo: rgba(255, 255, 255, 0.05);
-
-    --roxo: #7c5cbf;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --botao-ativo: #80323c;
+    --botao-inativo: rgba(105, 48, 60, 0.5);
+    --texto-fundo: rgba(58, 55, 94, 0.3);
 }
 
 body {
-    background:
-        linear-gradient(
-            180deg,
-            #2a0d2e 0%,
-            #1a001f 50%,
-            #090909 100%
-        );
-
+    background-color: var(--cor-de-fundo);
     color: var(--branco);
-
-    font-family: 'Chakra Petch', sans-serif;
-
-    min-height: 100vh;
-
-    padding: 30px;
-
-    overflow-x: hidden;
+    font-family: "Chakra Petch", sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* GRID SUAVE */
-body::before {
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-
-    background-size: 40px 40px;
-
-    z-index: -1;
-}
-
-/* CONTEÚDO */
 .conteudo-principal {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-
     max-width: 1200px;
-
+    width: 100%;
     margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
 }
 
-/* TÍTULO */
 .titulo-principal {
-    font-size: clamp(32px, 5vw, 52px);
-
-    text-align: center;
-
-    margin-bottom: 40px;
-
-    text-transform: uppercase;
-
-    letter-spacing: 3px;
-
-    color: var(--branco);
+    text-align: left;
+    width: 100%;
+    font-size: 32px;
+    margin-bottom: 30px;
 }
 
 .titulo-principal span {
-    color: var(--rosa);
+    color: var(--verde);
 }
 
-/* BOTÕES */
 .botoes {
-    display: flex;
-    flex-wrap: wrap;
-
+    display: block;
     width: 100%;
-
-    gap: 8px;
 }
 
 .botao {
-    flex: 1;
-
-    padding: 18px;
-
-    background: var(--botao-inativo);
-
+    font-family: "Chakra Petch", sans-serif;
+    background-color: var(--botao-inativo);
     color: var(--branco);
-
-    border: 1px solid rgba(255,255,255,0.1);
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    transition: 0.3s ease;
-
-    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    font-size: 18px;
+    width: 100%;
+    border: none;
+    border-bottom: 4px solid var(--botao-ativo);
+    border-left: 2px solid var(--botao-ativo);
+    border-right: 2px solid var(--botao-ativo);
+    cursor: pointer;
+    transition: 0.3s;
+    box-sizing: border-box;
 }
 
 .botao:hover {
-    background: rgba(255,255,255,0.12);
-
-    transform: translateY(-2px);
-}
-
-.botao.ativo {
-    background:
-        linear-gradient(
-            135deg,
-            var(--rosa),
-            var(--roxo)
-        );
-
-    border: 1px solid rgba(255,255,255,0.15);
+    background-color: var(--botao-ativo);
 }
 
 .botao:first-child {
-    border-radius: 18px 0 0 0;
+    border-radius: 40px 40px 0 0;
 }
 
-.botao:last-child {
-    border-radius: 0 18px 0 0;
+.botao.ativo {
+    background-color: var(--botao-ativo);
+    border-bottom: 4px solid var(--verde);
 }
 
-/* ABAS */
 .abas-textos {
-    width: 100%;
-
+    background-color: var(--texto-fundo);
     padding: 40px;
-
-    background: var(--texto-fundo);
-
-    border: 1px solid rgba(255,255,255,0.08);
-
-    border-radius: 0 0 20px 20px;
-
-    backdrop-filter: blur(10px);
+    border-radius: 0 0 40px 40px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* CONTEÚDO DAS ABAS */
 .aba-conteudo {
     display: none;
 }
 
 .aba-conteudo.ativo {
     display: block;
-
-    animation: fade 0.5s ease;
 }
 
-@keyframes fade {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* TÍTULOS */
 .aba-conteudo-titulo-principal {
-    font-size: 30px;
-
+    font-size: 28px;
     text-align: center;
-
-    margin-bottom: 15px;
-
-    color: var(--branco);
+    margin-bottom: 20px;
 }
 
 .aba-conteudo-titulo-secundario {
     text-align: center;
-
+    color: var(--verde);
     text-transform: uppercase;
-
-    color: #f3d9e8;
-
-    margin-bottom: 40px;
-
-    letter-spacing: 2px;
+    margin-bottom: 30px;
 }
 
-/* CONTADOR */
 .contador {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
-
     gap: 20px;
 }
 
-/* CARDS */
 .contador-digito {
-    min-width: 120px;
-
-    padding: 22px;
-
-    border-radius: 18px;
-
-    background:
-        rgba(255,255,255,0.04);
-
-    border: 1px solid rgba(255,255,255,0.08);
-
+    padding: 0 16px;
     text-align: center;
-
-    backdrop-filter: blur(8px);
-
-    transition: 0.3s ease;
+    min-width: 100px;
 }
 
-.contador-digito:hover {
-    transform: scale(1.03);
-
-    background: rgba(255,255,255,0.06);
-}
-
-/* NÚMEROS */
 .contador-digito-numero {
-    font-size: 70px;
-
-    color: var(--branco);
+    font-size: 80px;
+    margin: 0;
 }
 
-/* TEXTO */
 .contador-digito-texto {
-    font-size: 18px;
-
-    color: #f5e8ef;
-
-    text-transform: uppercase;
-
-    letter-spacing: 2px;
+    color: var(--verde);
+    font-size: 20px;
+    margin: 0;
 }
 
-/* RESPONSIVO */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
 
     .botoes {
-        flex-direction: column;
+        display: flex;
     }
 
     .botao:first-child {
-        border-radius: 20px 20px 0 0;
+        border-radius: 40px 0 0 0;
     }
 
     .botao:last-child {
-        border-radius: 0;
-    }
-
-    .contador-digito {
-        min-width: 100px;
-    }
-
-    .contador-digito-numero {
-        font-size: 50px;
+        border-radius: 0 40px 0 0;
     }
 }
-```
