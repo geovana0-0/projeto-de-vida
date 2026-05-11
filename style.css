@@ -1,12 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
 
 :root {
-   --cor-de-fundo: #702323;
-    --verde: #d39d9dc9;
+    --cor-de-fundo: #120016;
+
+    /* PALETA FEMININA CYBERPUNK */
+    --rosa-neon: #ff4fd8;
+    --lilas-neon: #c77dff;
+    --azul-neon: #7afcff;
+    --verde-neon: #72f1b8;
+
     --branco: #ffffff;
-    --botao-ativo: #80323c;
-    --botao-inativo: rgba(105, 48, 60, 0.5);
-    --texto-fundo: rgba(58, 55, 94, 0.3);
+
+    --botao-ativo: #ff4fd8;
+    --botao-inativo: rgba(255, 79, 216, 0.15);
+
+    --texto-fundo: rgba(255, 255, 255, 0.05);
+
+    --roxo: #6a00f4;
 }
 
 * {
@@ -17,7 +27,11 @@
 
 body {
     background:
-        radial-gradient(circle at top, #1b0033 0%, #0D0D0D 50%);
+        radial-gradient(circle at top,
+            #3b0a45 0%,
+            #1a001f 40%,
+            #090909 100%);
+            
     color: var(--branco);
     font-family: 'Chakra Petch', sans-serif;
     min-height: 100vh;
@@ -25,14 +39,16 @@ body {
     overflow-x: hidden;
 }
 
-/* GRID DE FUNDO CYBERPUNK */
+/* GRID CYBERPUNK */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
+
     background-image:
-        linear-gradient(rgba(0, 229, 255, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 229, 255, 0.08) 1px, transparent 1px);
+        linear-gradient(rgba(255, 79, 216, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 79, 216, 0.08) 1px, transparent 1px);
+
     background-size: 40px 40px;
     z-index: -1;
 }
@@ -48,22 +64,26 @@ body::before {
 
 /* TÍTULO */
 .titulo-principal {
-    font-size: clamp(30px, 5vw, 48px);
+    font-size: clamp(32px, 5vw, 52px);
     text-align: center;
     margin-bottom: 40px;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
+
     color: var(--branco);
+
     text-shadow:
-        0 0 10px var(--azul-neon),
-        0 0 20px var(--azul-neon);
+        0 0 10px var(--rosa-neon),
+        0 0 20px var(--rosa-neon),
+        0 0 40px var(--rosa-neon);
 }
 
 .titulo-principal span {
-    color: var(--rosa-neon);
+    color: var(--lilas-neon);
+
     text-shadow:
-        0 0 10px var(--rosa-neon),
-        0 0 20px var(--rosa-neon);
+        0 0 10px var(--lilas-neon),
+        0 0 25px var(--lilas-neon);
 }
 
 /* BOTÕES */
@@ -71,52 +91,74 @@ body::before {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    gap: 8px;
 }
 
 .botao {
     flex: 1;
     padding: 18px;
-    background: var(--botao-inativo);
+
+    background: rgba(255, 255, 255, 0.05);
+
     color: var(--branco);
-    border: 1px solid var(--azul-neon);
+
+    border: 1px solid rgba(255, 79, 216, 0.4);
+
     font-size: 16px;
     font-weight: bold;
-    transition: 0.3s;
-    backdrop-filter: blur(5px);
+
+    transition: 0.3s ease;
+
+    backdrop-filter: blur(8px);
 }
 
 .botao:hover {
-    background: var(--botao-ativo);
-    transform: translateY(-3px);
+    background: rgba(255, 79, 216, 0.2);
+
+    transform: translateY(-4px);
+
     box-shadow:
-        0 0 10px var(--azul-neon),
-        0 0 25px var(--azul-neon);
+        0 0 12px var(--rosa-neon),
+        0 0 30px var(--rosa-neon);
 }
 
 .botao.ativo {
-    background: linear-gradient(135deg, var(--roxo), #120024);
-    border-bottom: 3px solid var(--verde-neon);
+    background: linear-gradient(
+        135deg,
+        var(--rosa-neon),
+        var(--roxo)
+    );
+
+    border: 1px solid var(--lilas-neon);
+
     box-shadow:
-        0 0 15px var(--verde-neon),
-        0 0 30px var(--verde-neon);
+        0 0 15px var(--rosa-neon),
+        0 0 35px var(--lilas-neon);
 }
 
 .botao:first-child {
-    border-radius: 20px 0 0 0;
+    border-radius: 18px 0 0 0;
 }
 
 .botao:last-child {
-    border-radius: 0 20px 0 0;
+    border-radius: 0 18px 0 0;
 }
 
 /* ABAS */
 .abas-textos {
     width: 100%;
     padding: 40px;
-    background: var(--texto-fundo);
-    border: 1px solid rgba(0, 229, 255, 0.3);
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border: 1px solid rgba(255, 79, 216, 0.2);
+
     border-radius: 0 0 20px 20px;
-    backdrop-filter: blur(10px);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 25px rgba(255, 79, 216, 0.08);
 }
 
 /* CONTEÚDO DAS ABAS */
@@ -132,30 +174,39 @@ body::before {
 @keyframes fade {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(12px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* TÍTULOS DAS ABAS */
+/* TÍTULOS */
 .aba-conteudo-titulo-principal {
     font-size: 30px;
     text-align: center;
     margin-bottom: 15px;
+
     color: var(--branco);
-    text-shadow: 0 0 10px var(--rosa-neon);
+
+    text-shadow:
+        0 0 10px var(--rosa-neon);
 }
 
 .aba-conteudo-titulo-secundario {
     text-align: center;
     text-transform: uppercase;
-    color: var(--branco);
+
+    color: #ffd6fa;
+
     margin-bottom: 40px;
+
     letter-spacing: 2px;
-    text-shadow: 0 0 10px var(--verde-neon);
+
+    text-shadow:
+        0 0 10px var(--lilas-neon);
 }
 
 /* CONTADOR */
@@ -166,43 +217,65 @@ body::before {
     gap: 20px;
 }
 
-/* CARD */
+/* CARDS */
 .contador-digito {
     min-width: 120px;
-    padding: 20px;
-    border: 1px solid rgba(0, 229, 255, 0.3);
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 15px;
+    padding: 22px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.06),
+            rgba(255,255,255,0.02)
+        );
+
+    border: 1px solid rgba(255, 79, 216, 0.25);
+
     text-align: center;
-    backdrop-filter: blur(8px);
-    transition: 0.3s;
+
+    backdrop-filter: blur(12px);
+
+    transition: 0.3s ease;
 }
 
 .contador-digito:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px var(--azul-neon);
+
+    box-shadow:
+        0 0 20px var(--rosa-neon),
+        0 0 40px rgba(255, 79, 216, 0.4);
 }
 
-/* NÚMEROS (BRANCOS) */
+/* NÚMEROS */
 .contador-digito-numero {
     font-size: 70px;
+
     color: var(--branco);
+
     text-shadow:
-        0 0 10px var(--azul-neon),
-        0 0 25px var(--azul-neon);
+        0 0 10px var(--rosa-neon),
+        0 0 30px var(--rosa-neon);
 }
 
-/* TEXTOS (BRANCOS) */
+/* TEXTO */
 .contador-digito-texto {
     font-size: 18px;
-    color: var(--branco);
+
+    color: #ffe6fb;
+
     text-transform: uppercase;
+
     letter-spacing: 2px;
-    text-shadow: 0 0 10px var(--verde-neon);
+
+    text-shadow:
+        0 0 10px var(--lilas-neon);
 }
 
 /* RESPONSIVO */
 @media screen and (max-width: 768px) {
+
     .botoes {
         flex-direction: column;
     }
