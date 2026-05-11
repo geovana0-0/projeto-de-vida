@@ -273,24 +273,13 @@ body::before {
 }
 
 /* NÚMEROS */
-..contador-digito-numero {
+.contador-digito-numero {
 
     font-size: 72px;
 
     font-weight: bold;
 
     text-align: center;
-
-    background: linear-gradient(
-        135deg,
-        #ffd6ec,
-        #ff8dc7,
-        #c77dff
-    );
-
-    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
 }
 
 /* TEXTO */
