@@ -2,20 +2,24 @@
 
 :root {
 
-    /* PALETA FEMININA VIVA */
-    --rosa: #ff4fa3;
-    --rosa-claro: #ffb3d9;
-    --lilas: #c77dff;
-    --roxo: #7b2cbf;
-    --azul: #6ec5ff;
+    /* PALETA FEMININA */
+    --rosa: #e64492;
+    --rosa-claro: #f6b3d2;
+
+    --lilas: #b96df0;
+    --roxo: #6f2dbd;
+
+    --azul: #7db7ff;
 
     --branco: #ffffff;
 
     --fundo-escuro: #1b1028;
-    --fundo-card: rgba(255, 255, 255, 0.10);
 
-    --botao-inativo: rgba(255, 255, 255, 0.08);
-    --texto-suave: #f7dff0;
+    --texto-suave: #f3ddeb;
+
+    --botao-inativo: rgba(255,255,255,0.05);
+
+    --card: rgba(255,255,255,0.08);
 }
 
 * {
@@ -39,15 +43,16 @@ body {
     background:
         linear-gradient(
             135deg,
-            #ff4fa3 0%,
-            #c77dff 35%,
-            #7b2cbf 70%,
+            #e64492 0%,
+            #b96df0 35%,
+            #6f2dbd 70%,
             #1b1028 100%
         );
 }
 
-/* FUNDO DECORATIVO */
+/* FUNDO DECORATIVO SUAVE */
 body::before {
+
     content: "";
 
     position: fixed;
@@ -55,13 +60,17 @@ body::before {
     inset: 0;
 
     background:
-        radial-gradient(circle at top left,
-            rgba(255,255,255,0.15),
-            transparent 25%),
-
-        radial-gradient(circle at bottom right,
+        radial-gradient(
+            circle at top left,
             rgba(255,255,255,0.08),
-            transparent 25%);
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            rgba(255,255,255,0.04),
+            transparent 25%
+        );
 
     z-index: -1;
 }
@@ -70,7 +79,9 @@ body::before {
 .conteudo-principal {
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
     max-width: 1200px;
@@ -132,14 +143,14 @@ body::before {
 
     transition: 0.3s ease;
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
 }
 
 .botao:hover {
 
-    background: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.12);
 
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .botao.ativo {
@@ -147,14 +158,14 @@ body::before {
     background:
         linear-gradient(
             135deg,
-            var(--rosa),
-            var(--lilas)
+            #e64492,
+            #a855f7
         );
 
     color: white;
 }
 
-/* ABAS */
+/* ÁREA DAS ABAS */
 .abas-textos {
 
     width: 100%;
@@ -163,12 +174,12 @@ body::before {
 
     border-radius: 0 0 24px 24px;
 
-    background: rgba(255,255,255,0.10);
+    background: rgba(255,255,255,0.07);
 
-    backdrop-filter: blur(14px);
+    backdrop-filter: blur(12px);
 }
 
-/* CONTEÚDO */
+/* CONTEÚDO DAS ABAS */
 .aba-conteudo {
     display: none;
 }
@@ -240,24 +251,24 @@ body::before {
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.18),
-            rgba(255,255,255,0.08)
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.05)
         );
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
 
     transition: 0.3s ease;
 }
 
 .contador-digito:hover {
 
-    transform: translateY(-5px) scale(1.03);
+    transform: translateY(-4px);
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,0.25),
-            rgba(255,255,255,0.10)
+            rgba(255,255,255,0.16),
+            rgba(255,255,255,0.07)
         );
 }
 
