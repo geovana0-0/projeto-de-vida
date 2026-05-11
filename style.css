@@ -1,146 +1,308 @@
-@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
 
 :root {
-    --cor-de-fundo: #702323;
-    --verde: #d39d9dc9;
+
+    /* PALETA FEMININA VIVA */
+    --rosa: #ff4fa3;
+    --rosa-claro: #ffb3d9;
+    --lilas: #c77dff;
+    --roxo: #7b2cbf;
+    --azul: #6ec5ff;
+
     --branco: #ffffff;
-    --botao-ativo: #80323c;
-    --botao-inativo: rgba(105, 48, 60, 0.5);
-    --texto-fundo: rgba(58, 55, 94, 0.3);
+
+    --fundo-escuro: #1b1028;
+    --fundo-card: rgba(255, 255, 255, 0.10);
+
+    --botao-inativo: rgba(255, 255, 255, 0.08);
+    --texto-suave: #f7dff0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--cor-de-fundo);
+
+    font-family: 'Chakra Petch', sans-serif;
+
+    min-height: 100vh;
+
+    padding: 30px;
+
     color: var(--branco);
-    font-family: "Chakra Petch", sans-serif;
-    margin: 0;
-    padding: 0;
+
+    overflow-x: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4fa3 0%,
+            #c77dff 35%,
+            #7b2cbf 70%,
+            #1b1028 100%
+        );
 }
 
+/* FUNDO DECORATIVO */
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(255,255,255,0.15),
+            transparent 25%),
+
+        radial-gradient(circle at bottom right,
+            rgba(255,255,255,0.08),
+            transparent 25%);
+
+    z-index: -1;
+}
+
+/* CONTEÚDO */
 .conteudo-principal {
+
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+
     max-width: 1200px;
-    width: 100%;
+
     margin: 0 auto;
-    padding: 40px 20px;
-    box-sizing: border-box;
 }
 
+/* TÍTULO */
 .titulo-principal {
-    text-align: left;
-    width: 100%;
-    font-size: 32px;
-    margin-bottom: 30px;
+
+    font-size: clamp(34px, 5vw, 56px);
+
+    text-align: center;
+
+    margin-bottom: 45px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    font-weight: 700;
 }
 
 .titulo-principal span {
-    color: var(--verde);
+    color: var(--rosa-claro);
 }
 
+/* BOTÕES */
 .botoes {
-    display: block;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
     width: 100%;
+
+    gap: 10px;
 }
 
 .botao {
-    font-family: "Chakra Petch", sans-serif;
-    background-color: var(--botao-inativo);
-    color: var(--branco);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1em;
-    font-size: 18px;
-    width: 100%;
+
+    flex: 1;
+
+    padding: 18px;
+
     border: none;
-    border-bottom: 4px solid var(--botao-ativo);
-    border-left: 2px solid var(--botao-ativo);
-    border-right: 2px solid var(--botao-ativo);
+
+    border-radius: 14px 14px 0 0;
+
+    background: var(--botao-inativo);
+
+    color: var(--branco);
+
+    font-size: 16px;
+
+    font-weight: bold;
+
     cursor: pointer;
-    transition: 0.3s;
-    box-sizing: border-box;
+
+    transition: 0.3s ease;
+
+    backdrop-filter: blur(10px);
 }
 
 .botao:hover {
-    background-color: var(--botao-ativo);
-}
 
-.botao:first-child {
-    border-radius: 40px 40px 0 0;
+    background: rgba(255,255,255,0.18);
+
+    transform: translateY(-3px);
 }
 
 .botao.ativo {
-    background-color: var(--botao-ativo);
-    border-bottom: 4px solid var(--verde);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--rosa),
+            var(--lilas)
+        );
+
+    color: white;
 }
 
+/* ABAS */
 .abas-textos {
-    background-color: var(--texto-fundo);
-    padding: 40px;
-    border-radius: 0 0 40px 40px;
+
     width: 100%;
-    box-sizing: border-box;
+
+    padding: 45px;
+
+    border-radius: 0 0 24px 24px;
+
+    background: rgba(255,255,255,0.10);
+
+    backdrop-filter: blur(14px);
 }
 
+/* CONTEÚDO */
 .aba-conteudo {
     display: none;
 }
 
 .aba-conteudo.ativo {
+
     display: block;
+
+    animation: fade 0.5s ease;
 }
 
+@keyframes fade {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* TÍTULOS */
 .aba-conteudo-titulo-principal {
-    font-size: 28px;
+
+    font-size: 32px;
+
     text-align: center;
-    margin-bottom: 20px;
+
+    margin-bottom: 14px;
 }
 
 .aba-conteudo-titulo-secundario {
+
     text-align: center;
-    color: var(--verde);
+
     text-transform: uppercase;
-    margin-bottom: 30px;
+
+    color: var(--texto-suave);
+
+    margin-bottom: 40px;
+
+    letter-spacing: 2px;
 }
 
+/* CONTADOR */
 .contador {
+
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
+
     gap: 20px;
 }
 
+/* CARDS */
 .contador-digito {
-    padding: 0 16px;
-    text-align: center;
-    min-width: 100px;
+
+    min-width: 130px;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.18),
+            rgba(255,255,255,0.08)
+        );
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s ease;
 }
 
+.contador-digito:hover {
+
+    transform: translateY(-5px) scale(1.03);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.25),
+            rgba(255,255,255,0.10)
+        );
+}
+
+/* NÚMEROS */
 .contador-digito-numero {
-    font-size: 80px;
-    margin: 0;
+
+    font-size: 72px;
+
+    font-weight: bold;
+
+    text-align: center;
 }
 
+/* TEXTO */
 .contador-digito-texto {
-    color: var(--verde);
-    font-size: 20px;
-    margin: 0;
+
+    font-size: 17px;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-top: 10px;
+
+    color: var(--texto-suave);
 }
 
-@media screen and (min-width: 768px) {
+/* RESPONSIVO */
+@media screen and (max-width: 768px) {
 
     .botoes {
-        display: flex;
+        flex-direction: column;
     }
 
-    .botao:first-child {
-        border-radius: 40px 0 0 0;
+    .botao {
+        border-radius: 14px;
     }
 
-    .botao:last-child {
-        border-radius: 0 40px 0 0;
+    .contador-digito {
+        min-width: 100px;
+    }
+
+    .contador-digito-numero {
+        font-size: 52px;
     }
 }
